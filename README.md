@@ -20,10 +20,10 @@ t.line(0,0,49,49)
 t.circle(25,25,10)
 t.rect(0,0,5,5)
 ```
-*Print*:
+*Result*:
 ```python
 t.print()
 ```
-*Result*:
+
 ![logo](https://github.com/dmitrijkotov634/Termp/blob/master/result.jpg)
 
