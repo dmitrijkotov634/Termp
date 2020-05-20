@@ -6,7 +6,7 @@ Drawing in the terminal
 
 *Import*:
 ```python
-from Termp import termp
+from Termp import *
 ```
 
 *Create Create a text picture*:
