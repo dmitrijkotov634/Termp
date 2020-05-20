@@ -1,7 +1,3 @@
-from termcolor import colored
-import pickle
-import math
-
 class termp:
 	def __init__(self, x=40, y=40, char="░"):
 		self.array = [char for i in range(y*x)] 
