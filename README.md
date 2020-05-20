@@ -9,21 +9,21 @@ Drawing in the terminal
 from Termp import termp
 ```
 
-Create Create a text picture:
+*Create Create a text picture*:
 ```python
 t = termp(50,50)
 # Create a 50 × 50 text image
 ```
-Draw
+*Draw*:
 ```python
 t.line(0,0,49,49)
 t.circle(25,25,10)
 t.rect(0,0,5,5)
 ```
-Print
+*Print*:
 ```python
 t.print()
 ```
 *Result*:
-
+![logo](https://github.com/dmitrijkotov634/Termp/blob/master/result.jpg)
 
