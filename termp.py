@@ -10,7 +10,12 @@ class termp:
 		self.draw = True
 		
 	def point(self, x, y, char="█"):
-		self.array[x+(y*self.height)]= char
+		if 0 <= x < self.width and 0 <= y < self.height:
+			self.array[x+(y*self.height)]= char
+	
+	def get(self, x, y):
+		if 0 <= x < self.width and 0 <= y < self.height:
+			return self.array[x+(y*self.height)]
 		
 	def text(self):
 		return "\n".join(["".join([self.array[x] for x in range((y)*self.width,(y+1)*self.width)]) for y in range(self.height)])
@@ -36,6 +41,23 @@ class termp:
 			self.line(x2,y2,x1,y2)
 			self.line(x1,y2,x1,y1)
 	
+	def fill(self, x=0, y=0, char="█"):
+		target_char = self.get(x, y)
+		pos = [(x, y)]
+		while len(pos) > 0: 
+			x1, y1 = pos[-1]
+			pos.pop()
+			if self.get(x1+1, y1) == target_char:
+				pos.append((x1 + 1, y1))
+			if self.get(x1-1, y1) == target_char:
+				pos.append((x1 - 1, y1))
+			if self.get(x1, y1+1) == target_char: 
+				pos.append((x1, y1 + 1))
+			if self.get(x1, y1-1) == target_char:
+				pos.append((x1, y1 - 1))
+			if self.get(x1, y1) == target_char:
+				self.point(x1, y1, char)
+				
 	def circle(self, x=10, y=10, radius=5, char="█", q=360, fill=False):
 		for i in range(q):
 			a = 2*math.pi*(i/q)
