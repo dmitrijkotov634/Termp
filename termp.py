@@ -17,11 +17,11 @@ class termp:
 		if 0 <= x < self.width and 0 <= y < self.height:
 			return self.array[x+(y*self.height)]
 		
-	def text(self):
+	def __str__(self):
 		return "\n".join(["".join([self.array[x] for x in range((y)*self.width,(y+1)*self.width)]) for y in range(self.height)])
 	
 	def print(self):
-		print(self.text())
+		print(str(self))
 	
 	def goto(self, x, y, char="█"):
 		if self.draw: self.line(self.x, self.y, x, y, char)
@@ -76,7 +76,7 @@ class termp:
 	
 	def export(self, file="termp.txt"):
 		with open(file) as f:
-			f.write(self.text())
+			f.write(str(self))
 			
 	def line(self, x1=0, y1=0, x2=10, y2=10, char="█"):
 		delta_x, delta_y = abs(x2 - x1), abs(y2 - y1)
