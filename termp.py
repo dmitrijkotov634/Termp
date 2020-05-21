@@ -1,3 +1,7 @@
+from termcolor import colored
+import pickle
+import math
+
 class termp:
 	def __init__(self, x=40, y=40, char="░"):
 		self.array = [char for i in range(y*x)] 
@@ -47,7 +51,11 @@ class termp:
 	def read(self, file="termp.pk"):
 		with open(file, 'rb') as f:
 			self.array = list(pickle.load(f))
-					
+	
+	def export(self, file="termp.txt"):
+		with open(file) as f:
+			f.write(self.text())
+			
 	def line(self, x1=0, y1=0, x2=10, y2=10, char="█"):
 		delta_x, delta_y = abs(x2 - x1), abs(y2 - y1)
 		sign_x = 1 if x1 < x2 else -1
