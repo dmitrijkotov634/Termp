@@ -9,7 +9,7 @@ Drawing in the terminal
 from Termp import *
 ```
 
-*Create Create a text picture*:
+*Create a text picture*:
 ```python
 t = termp(50,50)
 # Create a 50 × 50 text image
