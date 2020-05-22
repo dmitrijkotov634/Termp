@@ -1,4 +1,5 @@
 from termcolor import colored
+from PIL import Image 
 import pickle
 import math
 
@@ -29,17 +30,32 @@ class termp:
 		
 	def clear(self, char="░"):
 		self.array = [char for i in range(self.width*self.height)] 
-	
+		
+	def image(self, file, w=30, x=0, y=0, resize=True, chars=[(200, "█"), (150, "▓"), (90, "▒"), (0, "░")]):
+		img = Image.open(file)
+		if resize:
+			img = img.resize((w, int((float(img.size[1]) * float((w / float(img.size[0])))))), Image.ANTIALIAS)
+		img = img.convert('RGB', palette=Image.ADAPTIVE, colors=10) 
+		pix = img.load()
+		for ix in range(img.size[0]):
+			for iy in range(img.size[1]):
+				r,g,b = pix[ix, iy][0], pix[ix, iy][1], pix[ix, iy][2]
+				s = (r + g + b) // 3
+				for level, char in chars:
+					if s > level:
+						self.point(x+ix, y+iy, char)
+						break
+					
 	def rect(self, x1=0, y1=0, x2=10, y2=10, char="█", fill=False):
 		if fill:
 			for y in range(y1, y2):
 				for x in range(x1, x2):
 					self.point(x, y, char)
 		else:
-			self.line(x1,y1,x2,y1)
-			self.line(x2,y1,x2,y2)
-			self.line(x2,y2,x1,y2)
-			self.line(x1,y2,x1,y1)
+			self.line(x1,y1,x2,y1, char)
+			self.line(x2,y1,x2,y2, char)
+			self.line(x2,y2,x1,y2, char)
+			self.line(x1,y2,x1,y1, char)
 	
 	def fill(self, x=0, y=0, char="█"):
 		target_char = self.get(x, y)
