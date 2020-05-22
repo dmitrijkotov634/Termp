@@ -12,11 +12,11 @@ class termp:
 		
 	def point(self, x, y, char="█"):
 		if 0 <= x < self.width and 0 <= y < self.height:
-			self.array[x+(y*self.height)]= char
+			self.array[x+y*self.width]= char
 	
 	def get(self, x, y):
 		if 0 <= x < self.width and 0 <= y < self.height:
-			return self.array[x+(y*self.height)]
+			return self.array[x+(y*self.width)]
 		
 	def __str__(self):
 		return "\n".join(["".join([self.array[x] for x in range((y)*self.width,(y+1)*self.width)]) for y in range(self.height)])
@@ -30,20 +30,33 @@ class termp:
 		
 	def clear(self, char="░"):
 		self.array = [char for i in range(self.width*self.height)] 
-		
-	def image(self, file, w=30, x=0, y=0, resize=True, chars=[(200, "█"), (150, "▓"), (90, "▒"), (0, "░")]):
+	
+	def image(self, file, w=30, x=0, y=0, resize=True, color=False, chars=[(200, "█"), (150, "▓"), (90, "▒"), (0, "░")]):
 		img = Image.open(file)
 		if resize:
 			img = img.resize((w, int((float(img.size[1]) * float((w / float(img.size[0])))))), Image.ANTIALIAS)
-		img = img.convert('RGB', palette=Image.ADAPTIVE, colors=10) 
-		pix = img.load()
+		img = img.convert('RGB', palette=Image.ADAPTIVE)
+		pimg = img.load()
 		for ix in range(img.size[0]):
 			for iy in range(img.size[1]):
-				r,g,b = pix[ix, iy][0], pix[ix, iy][1], pix[ix, iy][2]
-				s = (r + g + b) // 3
+				R = pimg[ix, iy][0]
+				G = pimg[ix, iy][1]
+				B = pimg[ix, iy][2]
+				if color:
+					if G > R and B > R: C = "cyan"
+					elif R > G and B > G: C = "magenta"
+					elif R > B and G > B: C = "yellow"
+					elif G < R > B: C = "red"
+					elif B < G > R: C = "green"
+					elif R < B > G: C = "blue"
+					else: C = "white"
+				S = (R+G+B) // 3
 				for level, char in chars:
-					if s > level:
-						self.point(x+ix, y+iy, char)
+					if S > level:
+						if color:
+							self.point(x+ix, y+iy, colored(char, C))
+						else:
+							self.point(x+ix, y+iy, char)
 						break
 					
 	def rect(self, x1=0, y1=0, x2=10, y2=10, char="█", fill=False):
