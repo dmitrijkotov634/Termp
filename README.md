@@ -27,7 +27,7 @@ t.fill(20,30, "#")
 t.print()
 ```
  
-![image](https://github.com/dmitrijkotov634/Termp/blob/master/result.jpg)
+<div align="center">![image](https://github.com/dmitrijkotov634/Termp/blob/master/result.jpg)</div>
 
 *Convert pictures*:
 * with color
@@ -36,4 +36,12 @@ t = termp(140, 140)
 t.image("file.jpg", 139, color=True)
 ```
 
-![image](https://github.com/dmitrijkotov634/Termp/blob/master/result1.jpg)
+<div align="center">![image](https://github.com/dmitrijkotov634/Termp/blob/master/result1.jpg)</div>
+
+* without color
+```python
+t = termp(140, 140)
+t.image("file.jpg", 139, color=True)
+```
+
+<div align="center">![image](https://github.com/dmitrijkotov634/Termp/blob/master/result2.jpg)</div>
