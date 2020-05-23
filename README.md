@@ -36,12 +36,16 @@ t = termp(140, 140)
 t.image("file.jpg", 139, color=True)
 ```
 
-<div align="center">![image](https://github.com/dmitrijkotov634/Termp/blob/master/result1.jpg)</div>
+<div align="center">
+![image](https://github.com/dmitrijkotov634/Termp/blob/master/result1.jpg)
+</div>
 
 * without color
 ```python
 t = termp(140, 140)
-t.image("file.jpg", 139, color=True)
+t.image("file.jpg", 139)
 ```
 
-<div align="center">![image](https://github.com/dmitrijkotov634/Termp/blob/master/result2.jpg)</div>
+<div align="center">
+![image](https://github.com/dmitrijkotov634/Termp/blob/master/result2.jpg)
+</div>
