@@ -28,6 +28,7 @@ t.print()
 ```
  
 <div align="center">
+
 ![image](https://github.com/dmitrijkotov634/Termp/blob/master/result.jpg)
 
 </div>
@@ -40,6 +41,7 @@ t.image("file.jpg", 139, color=True)
 ```
 
 <div align="center">
+
 ![image](https://github.com/dmitrijkotov634/Termp/blob/master/result1.jpg)
 
 </div>
@@ -51,6 +53,7 @@ t.image("file.jpg", 139)
 ```
 
 <div align="center">
+
 ![image](https://github.com/dmitrijkotov634/Termp/blob/master/result2.jpg)
 
 </div>
