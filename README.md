@@ -1,7 +1,8 @@
 # Termp
 Drawing in the terminal
 
-*Installation*: 
+*Installation*:
+
 `pip install --upgrade termp`
 
 *Import*:
