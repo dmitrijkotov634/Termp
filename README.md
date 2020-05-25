@@ -2,8 +2,6 @@
 Drawing in the terminal
 
 *Installation*: 
-* For Termux users:
-```LDFLAGS="-L/system/lib/ -lm -lcompiler_rt" pip3 install Pillow --global-option="build_ext" --global-option="--disable-jpeg"```
 `pip install --upgrade termp`
 
 *Import*:
