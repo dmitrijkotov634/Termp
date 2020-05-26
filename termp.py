@@ -100,6 +100,22 @@ class termp:
 			else:
 				self.point(int(math.cos(a)*radius)+x, int(math.sin(a)*radius)+y, char)
 	
+	def shape(self, x=10, y=10, radius=5, char="█", q=3):
+		first = False
+		for i in range(q):
+			a = 2*math.pi*(i/q)
+			xi = int(math.cos(a)*radius)+x
+			yi = int(math.sin(a)*radius)+y
+			if first:
+				self.line(xs, ys, xi, yi, char)
+			else:
+				self.point(xi, yi, char)
+				sx, sy = xi, yi
+				first = True
+			xs, ys = xi, yi
+		self.line(xs, ys, sx, sy, char)
+
+
 	def save(self, file="termp.pk"):
 		with open(file, 'wb') as f:
 			pickle.dump((self.array, self.width, self.height), f)
