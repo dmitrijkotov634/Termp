@@ -70,6 +70,11 @@ class termp:
 			self.line(x2,y2,x1,y2, char)
 			self.line(x1,y2,x1,y1, char)
 	
+	def givecolor(self, color):
+		for x in range(self.width):
+			for y in range(self.height):
+				self.point(x, y, colored(self.get(x, y), color))
+				
 	def fill(self, x=0, y=0, char="█"):
 		target_char = self.get(x, y)
 		pos = [(x, y)]
@@ -97,11 +102,11 @@ class termp:
 	
 	def save(self, file="termp.pk"):
 		with open(file, 'wb') as f:
-			pickle.dump(self.array, f)
+			pickle.dump((self.array, self.width, self.height), f)
 	
 	def read(self, file="termp.pk"):
 		with open(file, 'rb') as f:
-			self.array = list(pickle.load(f))
+			self.array, self.width, self.height = tuple(pickle.load(f))
 	
 	def export(self, file="termp.txt"):
 		with open(file) as f:
