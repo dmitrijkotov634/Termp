@@ -1,5 +1,6 @@
 # Termp
-![made with Python](https://github.com/Ethosa/open-source-badges/blob/master/badges/Languages/Python/Python-lang-plastic.svg) ![pypi](https://badge.fury.io/py/termp.svg)
+![made with Python](https://github.com/Ethosa/open-source-badges/blob/master/badges/Languages/Python/Python-lang-plastic.svg)
+![pypi](https://badge.fury.io/py/termp.svg)
 
 Drawing in the terminal
 
@@ -32,7 +33,7 @@ t.print()
  
 <div align="center">
 
-![image](https://github.com/dmitrijkotov634/Termp/blob/master/result.jpg)
+![image](https://github.com/dmitrijkotov634/Termp/blob/master/images/result.jpg)
 
 </div>
 
@@ -45,7 +46,7 @@ t.image("file.jpg", 139, color=True)
 
 <div align="center">
 
-![image](https://github.com/dmitrijkotov634/Termp/blob/master/result1.jpg)
+![image](https://github.com/dmitrijkotov634/Termp/blob/master/images/result1.jpg)
 
 </div>
 
@@ -57,6 +58,19 @@ t.image("file.jpg", 139)
 
 <div align="center">
 
-![image](https://github.com/dmitrijkotov634/Termp/blob/master/result2.jpg)
+![image](https://github.com/dmitrijkotov634/Termp/blob/master/images/result2.jpg)
+
+</div>
+
+* color filter picture
+```python
+t = termp(140, 140)
+t.image("file.jpg", 139)
+t.givecolor("green")
+```
+
+<div align="center">
+
+![image](https://github.com/dmitrijkotov634/Termp/blob/master/images/result3.jpg)
 
 </div>
