@@ -1,5 +1,4 @@
 # Termp
-![made with Python](https://github.com/Ethosa/open-source-badges/blob/master/badges/Languages/Python/Python-lang-plastic.svg)
 ![pypi](https://badge.fury.io/py/termp.svg)
 
 Drawing in the terminal
