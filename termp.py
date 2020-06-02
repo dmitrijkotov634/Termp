@@ -4,12 +4,16 @@ import pickle
 import math
 
 class termp:
+	p1 = [(200, "█"), (150, "▓"), (90, "▒"), (0, "░")]
+	p2 = [(230, "#"), (207, "&"), (184, "$"), (161, "X"), (138, "x"), (115, "="), (92, "+"), (69, ";"), (46, ":"), (0, ".")]
+	p3 = [(200, "▉"), (150, "▙"), (90, "▚"), (0, "▘")]
+	
 	def __init__(self, x=40, y=40, char="░"):
 		self.array = [char for i in range(y*x)] 
 		self.width, self.height = x, y
 		self.x, self.y = 0, 0
 		self.draw = True
-		
+	
 	def point(self, x, y, char="█"):
 		if 0 <= x < self.width and 0 <= y < self.height:
 			self.array[x+y*self.width]= char
@@ -114,8 +118,7 @@ class termp:
 				first = True
 			xs, ys = xi, yi
 		self.line(xs, ys, sx, sy, char)
-
-
+	
 	def save(self, file="termp.pk"):
 		with open(file, 'wb') as f:
 			pickle.dump((self.array, self.width, self.height), f)
