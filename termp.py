@@ -23,7 +23,7 @@ class termp:
 			return self.array[x+(y*self.width)]
 		
 	def __str__(self):
-		return "\n".join(["".join([self.array[x] for x in range((y)*self.width,(y+1)*self.width)]) for y in range(self.height)])
+		return "\n".join(["".join([str(self.array[x]) for x in range((y)*self.width,(y+1)*self.width)]) for y in range(self.height)])
 	
 	def print(self):
 		print(str(self))
@@ -35,6 +35,12 @@ class termp:
 	def clear(self, char="░"):
 		self.array = [char for i in range(self.width*self.height)] 
 	
+	def past(self, image, x=0 , y=0, chars=["░"]):
+		for px in range(x, x+image.width):
+			for py in range(y, y+image.height):
+				symbol = image.get(px-x, py-y)
+				if not symbol in chars: self.point(px, py, symbol)
+				
 	def image(self, file, w=30, x=0, y=0, resize=True, color=False, chars=[(200, "█"), (150, "▓"), (90, "▒"), (0, "░")]):
 		img = Image.open(file)
 		if resize:
