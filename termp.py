@@ -25,6 +25,21 @@ class termp:
 	def __str__(self):
 		return "\n".join(["".join([str(self.array[x]) for x in range((y)*self.width,(y+1)*self.width)]) for y in range(self.height)])
 	
+	def __eq__(self, obj):
+		if isinstance(obj, list):
+			return self.array == obj
+		elif isinstance(obj, termp):
+			return self.array == obj.array
+		elif isinstance(obj, str):
+			return str(self) == obj
+	
+	def __len__(self):
+		return len(self.array)
+		
+	def replace(self, char="░", rchar="█"):
+		for n, e in enumerate(self.array):
+			if e == char: self.array[n] = rchar
+			
 	def print(self):
 		print(str(self))
 	
