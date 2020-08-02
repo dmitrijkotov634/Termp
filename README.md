@@ -1,13 +1,16 @@
-# Termp
-![pypi](https://badge.fury.io/py/termp.svg)
+<div align="center">
+	<h1>Termp</h1>
 
 Drawing in the terminal
 
-*Installation*:
+![pypi](https://badge.fury.io/py/termp.svg)
 
+</div>
+
+## Install
 `pip install --upgrade termp`
 
-*Import*:
+## Usage
 ```python
 from Termp import *
 ```
@@ -36,7 +39,7 @@ t.print()
 
 </div>
 
-*Convert pictures*:
+## Convert Pictures
 * with color
 ```python
 t = termp(140, 140)
