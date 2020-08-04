@@ -43,7 +43,7 @@ t.print()
 * with color
 ```python
 t = termp(140, 140)
-t.image("file.jpg", 139, color=True)
+t.image("file.jpg", 140, color=True)
 ```
 
 <div align="center">
@@ -55,7 +55,7 @@ t.image("file.jpg", 139, color=True)
 * without color
 ```python
 t = termp(140, 140)
-t.image("file.jpg", 139)
+t.image("file.jpg", 140)
 ```
 
 <div align="center">
@@ -67,7 +67,7 @@ t.image("file.jpg", 139)
 * color filter picture
 ```python
 t = termp(140, 140)
-t.image("file.jpg", 139)
+t.image("file.jpg", 140)
 t.givecolor("green")
 ```
 
