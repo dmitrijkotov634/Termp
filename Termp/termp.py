@@ -1,6 +1,6 @@
 from termcolor import colored
 from PIL import Image 
-import pickle
+from json import load, dump
 import math
 
 class termp:
@@ -153,13 +153,13 @@ class termp:
             xs, ys = xi, yi
         self.line(xs, ys, sx, sy, char)
     
-    def save(self, file="termp.pk"):
-        with open(file, 'wb') as f:
-            pickle.dump((self.array, self.width, self.height), f)
+    def save(self, file="termp.json"):
+        with open(file, 'w') as f:
+            dump((self.array, self.width, self.height), f)
     
-    def read(self, file="termp.pk"):
-        with open(file, 'rb') as f:
-            self.array, self.width, self.height = tuple(pickle.load(f))
+    def read(self, file="termp.json"):
+        with open(file, 'r') as f:
+            self.array, self.width, self.height = tuple(load(f))
     
     def export(self, file="termp.txt"):
         with open(file) as f:
